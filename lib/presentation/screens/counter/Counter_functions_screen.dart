@@ -64,7 +64,9 @@ class _Counter_functions_screenState extends State<Counter_functions_screen> {
           CustomButton(
             icon: Icons.exposure_minus_1_outlined,
             onPressed: () {
+              if (clickCounter == 0) return;
               clickCounter--;
+              setState(() {});
             },
           ),
           const SizedBox(height: 20),
@@ -73,6 +75,7 @@ class _Counter_functions_screenState extends State<Counter_functions_screen> {
             icon: Icons.plus_one,
             onPressed: () {
               clickCounter++;
+              setState(() {});
             },
           ),
         ],
@@ -93,6 +96,8 @@ class CustomButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return FloatingActionButton(
       shape: const StadiumBorder(),
+      elevation: 5,
+      backgroundColor: const Color.fromARGB(255, 64, 210, 255),
       onPressed: onPressed,
       child: Icon(icon),
     );
